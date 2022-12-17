@@ -1,0 +1,14 @@
+name: AdvancedDisguises
+version: '${project.version}'
+main: me.blurmit.advanceddisguises.AdvancedDisguises
+prefix: AdvancedDisguises
+authors: [ Blurmit ]
+description: A plugin to completely change the look of players on your server
+website: https://blurmit.ml
+api-version: 1.13
+
+commands:
+  disguise:
+    description: The main command for the AdvancedDisguises plugin
+    permission: advanceddisguises.disguise
+    usage: /disguise <player>
