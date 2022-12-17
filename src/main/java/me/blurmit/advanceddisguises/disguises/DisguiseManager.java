@@ -40,7 +40,7 @@ public class DisguiseManager {
     @SneakyThrows
     public void setPlayerSkin(Player player, String name) {
         Object craftPlayer = player.getClass().getMethod("getHandle").invoke(player);
-        Object connection = Arrays.stream(craftPlayer.getClass().getFields()).filter(field -> field.getType().getName().contains("PlayerConnection")).findFirst().orElse(null);
+        Object connection = Arrays.stream(craftPlayer.getClass().getFields()).filter(field -> field.getType().getName().contains("PlayerConnection")).findFirst().orElse(null).get(craftPlayer);
         Object profile;
 
         try {
@@ -184,7 +184,7 @@ public class DisguiseManager {
                 .findFirst()
                 .orElse(null)
                 .newInstance(enumPlayerInfoAction, entityPlayerArray);
-        
+
         connection.getClass().getMethod("sendPacket", packetClass).invoke(connection, packetPlayOutPlayerInfo);
     }
 
